@@ -20,17 +20,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome]
+        browser: [chrome,firefox]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: yarn install
       - name: test
-        uses: ianwalter/puppeteer@v2.0.0
+        uses: cypress-io/github-action@v1
         with:
-          args: yarn e2e:headless
+          browser: ${{matrix.browser}}
   deploy:
     if: github.ref == 'refs/heads/master'
     needs: [build, e2e]
