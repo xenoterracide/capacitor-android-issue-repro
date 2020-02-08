@@ -25,6 +25,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - runs: yarn install
       - name: test
         uses: cypress-io/github-action@v1
         with:
