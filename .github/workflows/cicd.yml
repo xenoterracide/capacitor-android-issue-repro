@@ -1,7 +1,7 @@
 name: continuous integration
 on: [push]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome,firefox]
+        browser: [chrome,firefox,electron]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -29,6 +29,7 @@ jobs:
       - name: test
         uses: cypress-io/github-action@v1
         with:
+          start: yarn start
           browser: ${{matrix.browser}}
   deploy:
     if: github.ref == 'refs/heads/master'
