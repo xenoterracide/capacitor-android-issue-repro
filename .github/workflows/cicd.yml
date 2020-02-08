@@ -13,10 +13,10 @@ jobs:
         name: install
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.0
-        name: test
+      - name: test
+        uses: ianwalter/puppeteer@v2.0.0
         with:
-          cmd: test
+          args: yarn test
       - uses: borales/actions-yarn@v2.0.0
         name: e2e
         with:
