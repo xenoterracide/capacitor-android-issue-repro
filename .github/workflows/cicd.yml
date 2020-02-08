@@ -1,0 +1,28 @@
+name: test
+
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - uses: borales/actions-yarn
+        with:
+          cmd: install
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          SERVER_ENV=$(echo $GITHUB_REF | cut -f1,2 -d"/" --complement)
+          curl --silent --trace-ascii --fail -XPOST "https://api.github.com/repos/$GITHUB_REPOSITORY/deployments" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.ant-man-preview+json" \
+            --data "{ \"ref\": \"$GITHUB_REF\",\"environment\":\"$SERVER_ENV\", \"auto-merge\":\"false\", \"required_contexts\":[]}"
+
