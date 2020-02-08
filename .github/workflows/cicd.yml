@@ -20,10 +20,7 @@ jobs:
         name: install
         with:
           cmd: install
-      - name: test
-        uses: ianwalter/puppeteer@v2.0.0
-        with:
-          args: yarn test
+      - run: yarn test
   e2e:
     runs-on: ubuntu-latest
     strategy:
