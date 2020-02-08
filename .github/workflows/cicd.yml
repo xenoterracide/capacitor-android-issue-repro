@@ -33,7 +33,7 @@ jobs:
           browser: ${{matrix.browser}}
   deploy:
     if: github.ref == 'refs/heads/master'
-    needs: [build, e2e]
+    needs: [test, e2e]
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
