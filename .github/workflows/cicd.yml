@@ -17,13 +17,20 @@ jobs:
         uses: ianwalter/puppeteer@v2.0.0
         with:
           args: yarn test
-      - uses: borales/actions-yarn@v2.0.0
-        name: e2e
+  e2e:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chrome]
+    steps:
+      - name: test
+        uses: cypress-io/github-action@v1
         with:
-          cmd: e2e:headless
+          browser: ${{matrix.browser}}
   deploy:
     if: github.ref == 'refs/heads/master'
-    needs: build
+    needs: e2e
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
