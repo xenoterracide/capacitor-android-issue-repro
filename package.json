@@ -12,9 +12,10 @@
     "@capacitor/cli": "^1.5.0",
     "@capacitor/core": "^1.5.0",
     "@capacitor/electron": "^1.5.0",
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.2",
-    "source-map-support": "^0.5.16"
+    "bulma": "^0.8.0"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^4.0.3",
