@@ -1,0 +1,8 @@
+{
+  "appId": "com.xenoterracide.wm",
+  "appName": "Warmaster",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "dist",
+  "cordova": {}
+}
