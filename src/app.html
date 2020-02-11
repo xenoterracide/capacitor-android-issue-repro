@@ -1,3 +1,28 @@
 <template>
-  <h1>${message}</h1>
+  <require from="./styles.scss"></require>
+  <section class="section">
+    <div class="container">
+      <div class="tabs">
+        <ul>
+          <li class="is-active"><a>Active Tab</a></li>
+          <li>
+            <a>
+              <span class="icon is-small"><i aria-hidden="true" class="fas fa-plus"></i></span>
+              <span>Add a tab</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <p>My List</p>
+        </div>
+      </article>
+    </div>
+  </section>
 </template>
