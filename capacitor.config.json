@@ -1,6 +1,6 @@
 {
   "appId": "com.xenoterracide.wm",
-  "appName": "Warmaster",
+  "appName": "WarMeister",
   "bundledWebRuntime": false,
   "npmClient": "yarn",
   "webDir": "dist",

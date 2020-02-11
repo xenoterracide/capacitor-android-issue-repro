@@ -1,8 +1,8 @@
 version: "3.7"
 
 services:
-  warmaster:
-    image: warmaster:0.1.0
+  warmeister:
+    image: warmeister:0.1.0
     build:
       context: . # relative to docker-compose.yml
       dockerfile: Dockerfile
